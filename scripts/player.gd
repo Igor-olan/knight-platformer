@@ -21,6 +21,7 @@ var checkpoint = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var timer: Timer = $Timer
 @onready var finish_menu: Node2D = $Camera2D/CanvasLayer/finish_menu
+@onready var gamemanager = %Gamemanager
 
 func _physics_process(delta):
 	if not can_move:
@@ -44,7 +45,8 @@ func _physics_process(delta):
 			double_jump_used = true
 			velocity.y = -200.0
 			
-			
+	if Input.is_action_just_pressed("pause"):
+		gamemanager.pause()
 		
 	var direction = Input.get_axis("move_left", "move_right")
 

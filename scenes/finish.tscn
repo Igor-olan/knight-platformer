@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dfkk7fp813vk5" path="res://scripts/finish.gd" id="1_5nbog"]
 [ext_resource type="AudioStream" uid="uid://ck8nt1dtr1635" path="res://assets/sounds/victory1.wav" id="2_07gpw"]
-[ext_resource type="Script" uid="uid://cldrclxodd0t4" path="res://scripts/finish_ui.gd" id="3_m504p"]
 [ext_resource type="FontFile" uid="uid://d3q781uu28256" path="res://assets/fonts/PixelOperator8.ttf" id="4_n8g1v"]
 
 [sub_resource type="Animation" id="Animation_m504p"]
@@ -44,6 +43,14 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7jsg"]
 bg_color = Color(0.14902, 0.156863, 0.160784, 0.501961)
 
+[sub_resource type="GDScript" id="GDScript_2pftv"]
+script/source = "extends Panel
+
+@onready var finish_ui: Panel = $\".\"
+
+
+"
+
 [node name="finish_menu" type="Node2D"]
 script = ExtResource("1_5nbog")
 
@@ -71,7 +78,7 @@ offset_bottom = 649.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q7jsg")
-script = ExtResource("3_m504p")
+script = SubResource("GDScript_2pftv")
 
 [node name="Points" type="Label" parent="finishUI"]
 unique_name_in_owner = true

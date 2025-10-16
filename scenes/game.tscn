@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dt8rkxdntelh5"]
+[gd_scene load_steps=21 format=3 uid="uid://dt8rkxdntelh5"]
 
 [ext_resource type="Script" uid="uid://chqfnckrjfyjt" path="res://scripts/gamemanager.gd" id="1_oxohs"]
 [ext_resource type="FontFile" uid="uid://d3q781uu28256" path="res://assets/fonts/PixelOperator8.ttf" id="2_mef4q"]
 [ext_resource type="Texture2D" uid="uid://du6ytvgrptytv" path="res://assets/sprites/world_tileset.png" id="3_mxtmc"]
 [ext_resource type="PackedScene" uid="uid://cwsftj8glrfi5" path="res://scenes/player.tscn" id="4_cpa4d"]
+[ext_resource type="PackedScene" uid="uid://c153mtim0v1rh" path="res://scenes/pause_menu.tscn" id="4_dinhu"]
 [ext_resource type="PackedScene" uid="uid://ddtbfa7i5h1r7" path="res://scenes/checkpoint.tscn" id="4_vtaks"]
 [ext_resource type="PackedScene" uid="uid://62tgyud0tig8" path="res://scenes/killzone.tscn" id="5_vb2ay"]
 [ext_resource type="PackedScene" uid="uid://cydgo8dmd85co" path="res://scenes/finish_area.tscn" id="6_kvpfn"]
@@ -248,9 +249,13 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
+process_mode = 3
 
 [node name="finish_menu" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("7_0tnpc")]
 position = Vector2(0, -5)
+
+[node name="PauseMenu" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("4_dinhu")]
+process_mode = 3
 
 [node name="killzone" parent="." instance=ExtResource("5_vb2ay")]
 position = Vector2(207, -2)
@@ -400,6 +405,7 @@ text = "Almost there!"
 
 [node name="Gamemanager" type="Node" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 script = ExtResource("1_oxohs")
 
 [connection signal="body_entered" from="finishArea" to="Player/Camera2D/CanvasLayer/finish_menu" method="_on_finish_area_body_entered"]
