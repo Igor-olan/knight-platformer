@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c153mtim0v1rh"]
+[gd_scene load_steps=15 format=3 uid="uid://c153mtim0v1rh"]
 
 [ext_resource type="Script" uid="uid://dmboy4g3bfkbc" path="res://scripts/pause_menu.gd" id="1_kukqi"]
 [ext_resource type="FontFile" uid="uid://d3q781uu28256" path="res://assets/fonts/PixelOperator8.ttf" id="2_5d2l8"]
 [ext_resource type="Texture2D" uid="uid://bpaygy1vgaeec" path="res://assets/sprites/knight.png" id="3_7l7mv"]
+[ext_resource type="PackedScene" uid="uid://okxlrqmdvd5n" path="res://scenes/settings.tscn" id="4_5d2l8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 bg_color = Color(0.14902, 0.156863, 0.160784, 0.501961)
@@ -99,9 +100,8 @@ offset_right = 123.0
 offset_bottom = 115.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
-theme_override_font_sizes/font_size = 32
-text = "The infamous
-knight"
+theme_override_font_sizes/font_size = 56
+text = "Paused"
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="."]
@@ -118,6 +118,7 @@ offset_right = -122.0
 offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "Resume"
@@ -136,6 +137,7 @@ offset_right = -122.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "Restart
@@ -155,6 +157,7 @@ offset_right = -122.0
 offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
@@ -173,6 +176,7 @@ offset_right = -122.0
 offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
@@ -191,6 +195,7 @@ offset_right = -122.0
 offset_bottom = 248.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
@@ -248,6 +253,7 @@ offset_right = 284.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "Yes"
@@ -265,6 +271,7 @@ offset_right = -28.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "No"
@@ -315,6 +322,7 @@ offset_right = 284.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "Yes"
@@ -332,9 +340,13 @@ offset_right = -28.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 32
 text = "No"
+
+[node name="Settings2" parent="." instance=ExtResource("4_5d2l8")]
+layout_mode = 1
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

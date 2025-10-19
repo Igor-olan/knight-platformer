@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dq6mm0t03hkgv" path="res://scenes/platform.tscn" id="7_ls3sv"]
 [ext_resource type="PackedScene" uid="uid://x15loon3iihq" path="res://scenes/slime.tscn" id="8_nhpq4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8bki8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
 texture = ExtResource("3_mxtmc")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -177,7 +177,7 @@ texture = ExtResource("3_mxtmc")
 
 [sub_resource type="TileSet" id="TileSet_1y331"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_8bki8")
+sources/0 = SubResource("TileSetAtlasSource_dinhu")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dblcj"]
 distance = -216.0
@@ -256,6 +256,10 @@ position = Vector2(0, -5)
 
 [node name="PauseMenu" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("4_dinhu")]
 process_mode = 3
+offset_left = 0.0
+offset_top = -5.0
+offset_right = -4.0
+offset_bottom = -3.0
 
 [node name="killzone" parent="." instance=ExtResource("5_vb2ay")]
 position = Vector2(207, -2)

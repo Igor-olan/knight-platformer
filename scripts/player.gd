@@ -45,9 +45,6 @@ func _physics_process(delta):
 			double_jump_used = true
 			velocity.y = -200.0
 			
-	if Input.is_action_just_pressed("pause"):
-		gamemanager.pause()
-		
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if direction > 0:

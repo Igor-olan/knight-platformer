@@ -16,7 +16,7 @@ func _ready():
 	await get_tree().create_timer(0.5).timeout
 	player.can_move = true
 
-func pause():
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and not is_paused:
 		pause_menu.fade_in()
 		await get_tree().create_timer(0.2).timeout
@@ -26,6 +26,7 @@ func pause():
 		pause_menu.fade_out()
 		await get_tree().create_timer(0.2).timeout
 		get_tree().paused = false
+		is_paused = false
 
 func add_point():
 	score += 1

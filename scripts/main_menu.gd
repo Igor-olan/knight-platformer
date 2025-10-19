@@ -3,7 +3,7 @@ extends Control
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var menu_ui: Panel = $"."
 @onready var sure = $sure
-
+@onready var settings_2: Panel = $Settings2
 func _ready():
 	menu_ui.visible = true
 	menu_ui.modulate.a = 0.0
@@ -42,7 +42,7 @@ func _on_start_game_pressed():
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_settings_pressed() -> void:
-	pass
+	settings_2.fade_in()
 
 func _on_quit_pressed() -> void:
 	quit()

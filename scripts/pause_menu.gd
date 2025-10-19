@@ -5,6 +5,7 @@ extends Panel
 @onready var sure_m = $sure_m
 @onready var sure_q = $sure_q
 @onready var gamemanager = %Gamemanager
+@onready var settings_2: Panel = $Settings2
 
 func _ready():
 	pause_menu.visible = false
@@ -52,12 +53,14 @@ func _on_resume_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
+	fade_out()
+	await get_tree().create_timer(0.2).timeout
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	settings_2.fade_in()
 
 func _on_menu_pressed():
 	sure_m.visible = true

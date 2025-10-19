@@ -74,10 +74,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orj4e"]
-size = Vector2(10, 12)
+size = Vector2(11, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pvg"]
-size = Vector2(10, 2)
+size = Vector2(11, 2)
 
 [node name="Slime" type="CharacterBody2D"]
 script = ExtResource("1_fjd8x")
@@ -91,12 +91,12 @@ frame_progress = 0.695148
 [node name="Killzone" parent="." instance=ExtResource("3_n16w1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 6)
+position = Vector2(-0.5, 6)
 shape = SubResource("RectangleShape2D_orj4e")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
-target_position = Vector2(11, -1)
+target_position = Vector2(11, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
@@ -107,7 +107,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="stomp" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_n6pvg")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
