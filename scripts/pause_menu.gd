@@ -23,13 +23,16 @@ func fade_in():
 func fade_out():
 	var tween = create_tween()
 	tween.tween_property(pause_menu, "modulate:a", 0.0, 0.2)
+	fade_out_m()
+	fade_out_q()
+	settings_2.fade_out()
 	await get_tree().create_timer(0.2).timeout
 	pause_menu.visible = false
 
 func fade_in_m():
 	var tween = create_tween()
 	tween.tween_property(sure_m, "modulate:a", 1.0, 0.2)
-	
+
 func fade_out_m():
 	var tween = create_tween()
 	tween.tween_property(sure_m, "modulate:a", 0.0, 0.2)
@@ -37,27 +40,22 @@ func fade_out_m():
 func fade_in_q():
 	var tween = create_tween()
 	tween.tween_property(sure_q, "modulate:a", 1.0, 0.2)
-	
+
 func fade_out_q():
 	var tween = create_tween()
 	tween.tween_property(sure_q, "modulate:a", 0.0, 0.2)
-	
-	
-	
+
 func _on_resume_pressed() -> void:
 	fade_out()
 	await get_tree().create_timer(0.2).timeout
 	get_tree().paused = false
 	gamemanager.is_paused = false
 
-
-
 func _on_restart_pressed() -> void:
 	fade_out()
 	await get_tree().create_timer(0.2).timeout
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
-
 
 func _on_settings_pressed() -> void:
 	settings_2.fade_in()
@@ -69,7 +67,7 @@ func _on_menu_pressed():
 func _on_quit_pressed() -> void:
 	sure_q.visible = true
 	fade_in_q()
-	
+
 func _on_yes_m_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

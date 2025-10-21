@@ -1,11 +1,15 @@
 extends Panel
 
+var master_bus = AudioServer.get_bus_index("Master")
+var bgm_bus = AudioServer.get_bus_index("BGM")
+var sfx_bus = AudioServer.get_bus_index("SFX")
+
 @onready var main: HSlider = $main
 @onready var bgm: HSlider = $bgm
 @onready var bright: HSlider = $bright
 @onready var back: Button = $back
 @onready var settings: Panel = $"."
-
+@onready var sfx: HSlider = $sfx
 
 func _ready() -> void:
 	settings.visible = false
@@ -14,7 +18,7 @@ func _ready() -> void:
 func fade_in():
 	settings.visible = true
 	var tween = create_tween()
-	tween.tween_property(settings, 'modulate.a', 1.0, 0.2)
+	tween.tween_property(settings, 'modulate:a', 1.0, 0.2)
 
 func fade_out():
 	var tween = create_tween()
@@ -27,11 +31,14 @@ func _on_back_pressed() -> void:
 	await get_tree().create_timer(0.2).timeout
 	settings.visible = false
 
-func _on_main_changed() -> void:
-	pass # Replace with function body.
+func _on_main_value_changed(main_value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(main_value))
 
-func _on_bgm_changed() -> void:
-	pass # Replace with function body.
+func _on_bgm_value_changed(bgm_value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGM"), linear_to_db(bgm_value))
 
-func _on_bright_changed() -> void:
-	pass # Replace with function body.
+func _on_sfx_value_changed(sfx_value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(sfx_value))
+
+func _on_bright_value_changed(value: float) -> void:
+	pass

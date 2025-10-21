@@ -33,7 +33,7 @@ func quit():
 	sure.visible = true
 	fade_in_quit()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	animated_sprite_2d.play('idle')
 
 func _on_start_game_pressed():

@@ -84,7 +84,6 @@ func die():
 	print('You died!')
 	animation_player.play("death")
 	velocity.y = -100
-	collision.disabled == true
 	timer.start()
 	player_alive = false
 	
@@ -92,13 +91,11 @@ func _on_timer_timeout() -> void:
 	if checkpoint and not player_alive:
 		position.x = checkpoint_x
 		position.y = checkpoint_y
-		collision.disabled == false
 		player_alive = true
 		
 	elif not checkpoint and not player_alive:
 		position.x = spawn_x
 		position.y = spawn_y
-		collision.disabled == false
 		player_alive = true
 
 func check_for_stomp():

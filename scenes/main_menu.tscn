@@ -207,6 +207,7 @@ theme_override_font_sizes/font_size = 32
 text = "No"
 
 [node name="Settings2" parent="." instance=ExtResource("4_wu84c")]
+top_level = true
 layout_mode = 1
 grow_horizontal = 1
 grow_vertical = 1
