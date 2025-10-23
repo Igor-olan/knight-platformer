@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmv477jlprrq4"]
+[gd_scene load_steps=12 format=3 uid="uid://dmv477jlprrq4"]
 
 [ext_resource type="Script" uid="uid://50sq3h8a61ma" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://du6ytvgrptytv" path="res://assets/sprites/world_tileset.png" id="2_8ln24"]
