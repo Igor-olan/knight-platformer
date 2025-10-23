@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmv477jlprrq4"]
+[gd_scene load_steps=12 format=3 uid="uid://dmv477jlprrq4"]
 
 [ext_resource type="Script" uid="uid://50sq3h8a61ma" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://du6ytvgrptytv" path="res://assets/sprites/world_tileset.png" id="2_8ln24"]
 [ext_resource type="FontFile" uid="uid://d3q781uu28256" path="res://assets/fonts/PixelOperator8.ttf" id="2_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://sja2enj222qd" path="res://scenes/player-bg.tscn" id="3_8ln24"]
 [ext_resource type="PackedScene" uid="uid://okxlrqmdvd5n" path="res://scenes/settings.tscn" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://ci6ddx5e8f8f0" path="res://scenes/brightnessOverlay.tscn" id="5_8ln24"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 bg_color = Color(0.14902, 0.156863, 0.160784, 0.501961)
@@ -364,6 +365,9 @@ offset_left = -14.0
 offset_top = -504.0
 offset_right = -14.0
 offset_bottom = -504.0
+
+[node name="brightnessOverlay" parent="." instance=ExtResource("5_8ln24")]
+layout_mode = 1
 
 [connection signal="pressed" from="Player-bg/Camera2D/CanvasLayer/Start game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Player-bg/Camera2D/CanvasLayer/Settings" to="." method="_on_settings_pressed"]
