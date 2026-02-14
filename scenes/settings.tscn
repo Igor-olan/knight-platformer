@@ -132,24 +132,6 @@ max_value = 6.0
 step = 0.01
 value = 6.0
 
-[node name="bright" type="HSlider" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 101.5
-offset_right = 298.0
-offset_bottom = 133.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-max_value = 1.0
-step = 0.01
-value = 1.0
-
 [node name="back" type="Button" parent="."]
 layout_mode = 0
 offset_left = 16.0
@@ -169,7 +151,5 @@ bus = &"SFX"
 
 [connection signal="value_changed" from="main" to="." method="_on_main_value_changed"]
 [connection signal="value_changed" from="bgm" to="." method="_on_bgm_value_changed"]
-[connection signal="drag_ended" from="sfx" to="." method="_on_sfx_drag_ended"]
-[connection signal="value_changed" from="sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="bright" to="." method="_on_bright_value_changed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
