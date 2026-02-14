@@ -5,7 +5,7 @@ var is_paused = false
 
 @onready var player: CharacterBody2D = $"../Player"
 @onready var finish_menu: Node2D = $"../Player/Camera2D/CanvasLayer/finish_menu"
-@onready var finishArea: Area2D = $"../finish"
+@onready var finish_area: Area2D = $"../finishArea"
 @onready var pause_menu = $"../Player/Camera2D/CanvasLayer/PauseMenu"
 
 
@@ -16,7 +16,7 @@ func _ready():
 	await get_tree().create_timer(0.5).timeout
 	player.can_move = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and not is_paused:
 		pause_menu.fade_in()
 		await get_tree().create_timer(0.2).timeout

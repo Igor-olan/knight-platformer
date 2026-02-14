@@ -6,7 +6,6 @@ extends Panel
 @onready var back: Button = $back
 @onready var settings: Panel = $"."
 
-
 func _ready() -> void:
 	settings.visible = false
 	settings.modulate.a = 0.0
@@ -14,8 +13,8 @@ func _ready() -> void:
 func fade_in():
 	settings.visible = true
 	var tween = create_tween()
-	tween.tween_property(settings, 'modulate.a', 1.0, 0.2)
-
+	tween.tween_property(settings, 'modulate:a', 1.0, 0.2)
+ 
 func fade_out():
 	var tween = create_tween()
 	tween.tween_property(settings, "modulate:a", 0.0, 0.2)

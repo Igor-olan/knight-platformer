@@ -1,18 +1,34 @@
 extends Control
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var menu_ui: Panel = $"."
-@onready var sure = $sure
-@onready var settings_2: Panel = $Settings2
+@onready var sure: Panel = $"Player-bg/Camera2D/CanvasLayer/sure"
+@onready var settings_2: Panel = $"Player-bg/Camera2D/CanvasLayer/Settings2"
+@onready var tile_map_a: TileMap = $"TileMap A"
+@onready var tile_map_b: TileMap = $"TileMap B"
+@onready var player_bg: CharacterBody2D = $"Player-bg"
+
+var map_width = 0
+
 func _ready():
 	menu_ui.visible = true
 	menu_ui.modulate.a = 0.0
 	sure.visible = false
 	sure.modulate.a = 0.0
+	settings_2.visible = false
+	settings_2.modulate.a = 0.0
 	fade_in()
+	
+	map_width = 5040
+	
+	tile_map_b.global_position.x = tile_map_a.global_position.x + map_width
 
-
-
+func _process(delta):
+	if player_bg.global_position.x > tile_map_a.global_position.x + map_width + 1000:
+		tile_map_a.global_position.x = tile_map_b.global_position.x + map_width
+	if player_bg.global_position.x > tile_map_b.global_position.x + map_width + 1000:
+		tile_map_b.global_position.x = tile_map_a.global_position.x + map_width
+		
 func fade_in():
 	var tween = create_tween()
 	tween.tween_property(menu_ui, "modulate:a", 1.0, 0.2)
@@ -33,8 +49,9 @@ func quit():
 	sure.visible = true
 	fade_in_quit()
 
-func _process(delta: float) -> void:
-	animated_sprite_2d.play('idle')
+
+
+
 
 func _on_start_game_pressed():
 	fade_out()
