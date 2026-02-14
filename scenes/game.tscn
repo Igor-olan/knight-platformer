@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dt8rkxdntelh5"]
+[gd_scene load_steps=22 format=3 uid="uid://dt8rkxdntelh5"]
 
 [ext_resource type="Script" uid="uid://chqfnckrjfyjt" path="res://scripts/gamemanager.gd" id="1_oxohs"]
 [ext_resource type="FontFile" uid="uid://d3q781uu28256" path="res://assets/fonts/PixelOperator8.ttf" id="2_mef4q"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwsftj8glrfi5" path="res://scenes/player.tscn" id="4_cpa4d"]
 [ext_resource type="PackedScene" uid="uid://c153mtim0v1rh" path="res://scenes/pause_menu.tscn" id="4_dinhu"]
 [ext_resource type="PackedScene" uid="uid://ddtbfa7i5h1r7" path="res://scenes/checkpoint.tscn" id="4_vtaks"]
+[ext_resource type="PackedScene" uid="uid://ci6ddx5e8f8f0" path="res://scenes/brightnessOverlay.tscn" id="5_kvuet"]
 [ext_resource type="PackedScene" uid="uid://62tgyud0tig8" path="res://scenes/killzone.tscn" id="5_vb2ay"]
 [ext_resource type="PackedScene" uid="uid://cydgo8dmd85co" path="res://scenes/finish_area.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c2ddi2twslb10" path="res://scenes/coin.tscn" id="6_nk87a"]
@@ -260,6 +261,8 @@ offset_left = 0.0
 offset_top = -5.0
 offset_right = -4.0
 offset_bottom = -3.0
+
+[node name="brightnessOverlay" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("5_kvuet")]
 
 [node name="killzone" parent="." instance=ExtResource("5_vb2ay")]
 position = Vector2(207, -2)
