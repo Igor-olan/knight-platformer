@@ -94,9 +94,10 @@ func _on_timer_timeout() -> void:
 		player_alive = true
 		
 	elif not checkpoint and not player_alive:
-		position.x = spawn_x
-		position.y = spawn_y
-		player_alive = true
+		#position.x = spawn_x
+		#position.y = spawn_y
+		await get_tree().create_timer(0.2).timeout
+		get_tree().reload_current_scene()
 
 func check_for_stomp():
 	var space_state = get_world_2d().direct_space_state
