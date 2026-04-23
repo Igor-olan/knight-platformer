@@ -5,9 +5,8 @@ extends Panel
 @onready var bright: HSlider = $bright
 @onready var back: Button = $back
 @onready var settings: Panel = $"."
-#@onready var sfx: HSlider = $sfx
-@onready var brightness_overlay: ColorRect = $brightnessOverlay
 @onready var pickup: AudioStreamPlayer2D = $Pickup
+@onready var brightness_overlay: ColorRect = %brightnessOverlay
 
 func _ready() -> void:
 	settings.visible = false

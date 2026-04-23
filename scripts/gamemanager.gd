@@ -19,8 +19,8 @@ func _ready():
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and not is_paused:
 		pause_menu.fade_in()
-		await get_tree().create_timer(0.2).timeout
 		get_tree().paused = true
+		await get_tree().create_timer(0.2).timeout
 		is_paused = true
 	elif Input.is_action_just_pressed("pause") and is_paused:
 		pause_menu.fade_out()

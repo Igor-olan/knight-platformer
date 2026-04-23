@@ -16,6 +16,8 @@ var checkpoint_x = 0.0
 var checkpoint_y = 0.0
 var checkpoint = false
 
+
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -79,6 +81,7 @@ func _ready():
 func save_checkpoint(x, y):
 	checkpoint_x = x
 	checkpoint_y = y
+	
 
 func die():
 	print('You died!')
@@ -94,9 +97,8 @@ func _on_timer_timeout() -> void:
 		player_alive = true
 		
 	elif not checkpoint and not player_alive:
-		position.x = spawn_x
-		position.y = spawn_y
-		player_alive = true
+		await get_tree().create_timer(0.4).timeout
+		get_tree().reload_current_scene()
 
 func check_for_stomp():
 	var space_state = get_world_2d().direct_space_state
